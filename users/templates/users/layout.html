@@ -7,26 +7,83 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">
-            <img src="{% static 'users/logo.png' %}" alt="Logo" width="1300px" height="300px"> 
-        </div>       
-        <nav>
-
-            <a href="#" onclick="showSection('splashPage')">Home</a>
-            
-            <a href="#" onclick="showSection('questions')">Tutorials</a>
-            
-            </nav>
-            
-            
+        <div class="logo"><img src="{% static 'users/logo.png' %}" alt="Logo" width="1470px" height="300px"> 
+        </div>
         <div class="user-info">
             <span>{{ user.username }}</span>
-            <form action="{% url 'users:logout' %}" method="post" style="margin: 40px; margin-left: 40px;">
+            <form action="{% url 'users:logout' %}" method="post" style="margin: 20; margin-left: 20px;">
                 {% csrf_token %}
                 <button type="submit">Log out</button>
             </form>
         </div>
     </div>   
+    <!DOCTYPE html>
+    <html lang="en">
+        <center>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Header</title>
+    <style>
+    /* Basic styling for header */
+    header {
+      background-color: #956fa6;
+      color: #fff;
+      padding: 10px;
+    }
+    
+    /* Styling for links */
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+    
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    /* Styling for logout button */
+    #logout-btn {
+      background-color: rgb(193, 146, 209);
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <header>
+      <!-- Navigation links -->
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Tutorial 1: Eyes</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Logout button -->
+      <button id="logout-btn">Logout</button>
+    </header>
+    
+    <!-- JavaScript for logout functionality -->
+    <script>
+    document.getElementById('logout-btn').addEventListener('click', function() {
+     window.location.href = 'users:logout';
+      alert('Logged out successfully');
+    });
+    </script>
+    
+    </body>
+    </html>
     {% if messages %}
         <ul class="messages">
         {% for message in messages %}
@@ -36,3 +93,7 @@
     {% endif %}
     {% block body %}
     {% endblock %}
+
+
+</body>
+</html>

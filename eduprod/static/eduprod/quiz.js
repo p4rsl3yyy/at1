@@ -28,4 +28,19 @@ document.addEventListener("DOMContentLoaded", function() {
             displayQuestion();
         }
     });
+
+    const stepImages = ["users/steps/s1.png", "users/steps/s2.png", "users/steps/s3.png"]; 
+let currentStep = 0;
+
+const nextStepButton = document.getElementById("next-step-btn");
+const stepImage = document.getElementById("step-image");
+
+nextStepButton.addEventListener("click", function() {
+    if (currentStep < stepImages.length - 1) {
+        currentStep++;
+        stepImage.src = stepImages[currentStep];
+    } else {
+        alert("No more steps.");
+    }
+});
 });
