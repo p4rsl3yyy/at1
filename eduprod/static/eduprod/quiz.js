@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             content.innerHTML = `<div class='question'>Question: ${question}</div><div class='answer' style='display: none;'>Answer: ${answer}</div>`;
             btn.textContent = "Reveal Answer";
         } else {
-            content.innerHTML = "No more questions.";
+            content.innerHTML = "No more steps.";
             btn.style.display = "none";
         }
     }
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const answerElement = content.querySelector('.answer');
         if (btn.textContent === "Reveal Answer") {
             answerElement.style.display = "block";
-            btn.textContent = "Next Question";
+            btn.textContent = "Next Step";
         } else {
             currentQuestionIndex++;
             displayQuestion();
